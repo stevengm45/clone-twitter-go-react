@@ -12,7 +12,7 @@ import (
 
 /*Login realiza el login*/
 func Login(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("content-type", "application/json")
+	w.Header().Add("Content-Type", "application/json")
 
 	var t models.User
 
@@ -27,7 +27,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	documento, existe := db.IntentoLogin(t.Email, t.Password)
-	if existe == false {
+	if !existe {
 		http.Error(w, "Usuario y/o contraseña invalidos ", 400)
 		return
 	}

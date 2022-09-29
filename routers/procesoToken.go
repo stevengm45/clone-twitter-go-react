@@ -31,7 +31,7 @@ func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 		return miClave, nil
 	})
 
-	if err == nil {
+	if err != nil {
 		_, encontrado, _ := db.ChequeoYaExisteUsuario(claims.Email)
 		if encontrado {
 			Email = claims.Email
