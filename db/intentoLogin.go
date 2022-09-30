@@ -8,7 +8,7 @@ import (
 /*IntentoLogin realiza el chequeo de login a la BD */
 func IntentoLogin(email, password string) (models.User, bool) {
 	usu, encontrado, _ := ChequeoYaExisteUsuario(email)
-	if encontrado == false {
+	if !encontrado {
 		return usu, false
 	}
 
