@@ -10,7 +10,7 @@ import (
 )
 
 /*ConsultaRelacion consulta la relacion entre 2 usuarios*/
-func COnsultoRelacion(t models.Relacion) (bool, error) {
+func ConsultoRelacion(t models.Relacion) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -19,7 +19,7 @@ func COnsultoRelacion(t models.Relacion) (bool, error) {
 
 	condicion := bson.M{
 		"usuarioid":         t.UsuarioID,
-		"usuariorelacionud": t.UsuarioRelacionID,
+		"usuariorelacionid": t.UsuarioRelacionID,
 	}
 
 	var resultado models.Relacion
