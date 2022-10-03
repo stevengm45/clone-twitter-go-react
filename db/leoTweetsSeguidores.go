@@ -33,9 +33,9 @@ func LeoTweetsSeguidores(ID string, pagina int) ([]models.DevuelvoTweetsSeguidor
 	condiciones = append(condiciones, bson.M{"$skip": skip})
 	condiciones = append(condiciones, bson.M{"$limit": 20})
 
-	cursor, err := col.Aggregate(ctx, condiciones)
+	cursor, _ := col.Aggregate(ctx, condiciones)
 	var result []models.DevuelvoTweetsSeguidores
-	err = cursor.All(ctx, &result)
+	err := cursor.All(ctx, &result)
 
 	if err != nil {
 		return result, false
